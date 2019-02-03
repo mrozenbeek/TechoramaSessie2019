@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28516.95
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechoramaSessie.API.Routing", "TechoramaSessie.API.Routing\TechoramaSessie.API.Routing.csproj", "{5A6099B6-B570-49E6-BF33-C8F9D9A16AAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A6099B6-B570-49E6-BF33-C8F9D9A16AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A6099B6-B570-49E6-BF33-C8F9D9A16AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A6099B6-B570-49E6-BF33-C8F9D9A16AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A6099B6-B570-49E6-BF33-C8F9D9A16AAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F80E504-C088-4903-BAFD-12296CC62194}
+	EndGlobalSection
+EndGlobal
