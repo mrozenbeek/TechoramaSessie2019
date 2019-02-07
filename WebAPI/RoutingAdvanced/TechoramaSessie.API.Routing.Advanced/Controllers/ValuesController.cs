@@ -10,24 +10,39 @@ namespace TechoramaSessie.API.Routing.Advanced.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private static IList<string> _data = new List<string>() {
+             "value1", "value2"
+        };
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IList<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(_data);
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return Ok(_data[id]);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<string> Post([FromBody] ExampleViewModel model)
         {
+            //if (string.IsNullOrWhiteSpace(model.Value))
+            //    return BadRequest();
+
+            if (ModelState.IsValid == false)
+                return BadRequest();
+
+            string manipulatedString = $"added '{model.Value}' by using the post ";
+
+            _data.Add(manipulatedString);
+
+            return Ok(manipulatedString);
         }
 
         // PUT api/values/5
@@ -38,8 +53,15 @@ namespace TechoramaSessie.API.Routing.Advanced.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
+            if (id < 0)
+                return BadRequest();
+
+            //Will fail if id exceeds the length of the list....
+            _data.RemoveAt(id);
+
+            return Ok();
         }
     }
 }
