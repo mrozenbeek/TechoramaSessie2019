@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using TechoramaSessie.API.Routing.Advanced.Models;
 
 namespace TechoramaSessie.API.Routing.Advanced.Controllers
 {
     [Route("api/[controller]")]
+    //[Route("api/values")]
+    [Route("api/AdvancedRouting")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -22,10 +23,10 @@ namespace TechoramaSessie.API.Routing.Advanced.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{id:maxlength(6):minlength(3)}")]
+        public ActionResult<string> Get(string id)
         {
-            return Ok(_data[id]);
+            return Ok(_data.FirstOrDefault(el => el == id));
         }
 
         // POST api/values
@@ -52,16 +53,17 @@ namespace TechoramaSessie.API.Routing.Advanced.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        [HttpDelete("{id:maxlength(6):minlength(3)}")]
+        public ActionResult Delete(string id)
         {
-            if (id < 0)
-                return BadRequest();
+            //No need to check since we use routecontstraints.
+            //if (id < 0)
+            //    return BadRequest();
 
             //Will fail if id exceeds the length of the list....
-            _data.RemoveAt(id);
+            var removed = _data.Remove(id);
 
-            return Ok();
+            return removed ? Ok() : (ActionResult)NotFound();
         }
     }
 }
