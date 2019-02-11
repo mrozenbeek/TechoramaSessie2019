@@ -4,17 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TechoramaSessie.API.Versioning.Controllers
+namespace TechoramaSessie.API.Versioning.Controllers.V1
 {
-    [Route("api/[controller]")]
+    [ApiVersion("2.0")]
+    [Route("api/values")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class Version2Controller : ControllerBase
     {
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "value1 from version 2", "value2  from version 2" };
         }
 
         // GET api/values/5
