@@ -75,5 +75,11 @@ namespace TechoramaSessie.API.Routing.Advanced.Controllers
         {
             return Ok("Multiple verbs example");
         }
+
+        [NonAction]
+        public ActionResult NotAnActualAPIMethod()
+        {
+            return Ok("Multiple verbs example");
+        }
     }
 }
