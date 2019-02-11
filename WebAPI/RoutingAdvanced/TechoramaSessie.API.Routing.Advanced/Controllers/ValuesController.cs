@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using TechoramaSessie.API.Routing.Advanced.Models;
 
 namespace TechoramaSessie.API.Routing.Advanced.Controllers
@@ -64,6 +65,15 @@ namespace TechoramaSessie.API.Routing.Advanced.Controllers
             var removed = _data.Remove(id);
 
             return removed ? Ok() : (ActionResult)NotFound();
+        }
+
+        //Demo
+
+        [HttpPost("AcceptVerbesDemo")]
+        [HttpGet("AcceptVerbesDemo")]
+        public ActionResult AcceptVerbesDemo()
+        {
+            return Ok("Multiple verbs example");
         }
     }
 }
