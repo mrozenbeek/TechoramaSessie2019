@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TechoramaSessie.API.Versioning.Controllers.V1
 {
     [ApiVersion("1.0")]
-    [Route("api/values")]
+    //[Route("api/{v:apiVersion}/values")]
     [ApiController]
     public class Version1Controller : ControllerBase
     {
