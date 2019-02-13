@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TechoramaSessie.API.Versioning.Controllers.V1
+namespace TechoramaSessie.API.Versioning.Conventions.Controllers.V1
 {
-    [ApiVersion("2.0")]
-    //[Route("api/{v:apiVersion}/values")]
     [Route("api/values")]
     [ApiController]
-    public class Version2Controller : ControllerBase
+    public class Version1Controller : ControllerBase
     {
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1 from version 2", "value2  from version 2" };
+            return new string[] { "value1  from version 1", "value2  from version 1"};
         }
 
         // GET api/values/5

@@ -1,13 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.Mvc.Versioning.Conventions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TechoramaSessie.API.Versioning.Controllers.V1;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using TechoramaSessie.API.Versioning.Conventions.Controllers.V1;
 
-namespace TechoramaSessie.API.Versioning
+namespace TechoramaSessie.API.Versioning.Conventions
 {
     public class Startup
     {
@@ -21,8 +28,7 @@ namespace TechoramaSessie.API.Versioning
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc()
-                .AddNewtonsoftJson();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddApiVersioning(o =>
             {
@@ -41,12 +47,21 @@ namespace TechoramaSessie.API.Versioning
 
                 //When the version is not specified using the ApiVersionReader then give the default.
                 o.AssumeDefaultVersionWhenUnspecified = true;
-                
+
                 //Default if no version is specified.
-                o.DefaultApiVersion = new ApiVersion(1,0);
+                o.DefaultApiVersion = new ApiVersion(1, 0);
 
                 //Outputs in headers which versions there. Also seperates deprecated and supported versions.
                 o.ReportApiVersions = true;
+
+                o.Conventions.Controller<Version1Controller>()
+                                        .HasDeprecatedApiVersion(1, 0);
+
+                o.Conventions.Controller<Version2Controller>()
+                                        .HasApiVersion(2, 0);
+
+                o.Conventions.Controller<Version3Controller>()
+                                        .HasApiVersion(3, 0);
             });
         }
 
@@ -59,18 +74,11 @@ namespace TechoramaSessie.API.Versioning
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
             app.UseHttpsRedirection();
-
-            app.UseRouting(routes =>
-            {
-                routes.MapApplication();
-            });
-
-            app.UseAuthorization();
+            app.UseMvc();
         }
     }
 }
