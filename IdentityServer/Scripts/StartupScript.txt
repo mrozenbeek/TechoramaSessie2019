@@ -1,0 +1,12 @@
+// Powershell (run as administrator):
+
+dotnet new -i identityserver4.templates
+
+// dotnet templates are being installed
+
+dotnet new is4ef --output C:\Git\ronaldvanmeer@gmail.com\TechoramaSessie\TechoramaSessie2019\IdentityServer\Source\IdentityServer\
+
+// Do not RUN SEED =>  N   || database needs to be setup / configured
+
+// Open project in Visual Studio
+// Edit appsettings.json to meet requirements -=> connection string
