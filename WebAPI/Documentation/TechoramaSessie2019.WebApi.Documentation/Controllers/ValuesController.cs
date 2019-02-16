@@ -33,8 +33,17 @@ namespace TechoramaSessie2019.WebApi.Documentation.Controllers
         }
 
         // POST api/values
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
+        /// <summary>
+        /// Adds a new value
+        /// </summary>
+        /// <remarks>
+        /// Sample remark
+        /// </remarks>
+        /// <param name="model"><see cref="ExampleViewModel"/>Post model</param>
+        /// <returns>An 200 http status code with the new value.</returns>
+        /// <response code="200">Value created</response>
+        /// <response code="400">Value has missing/invalid values</response>
+        /// <response code="500">Oops! Can't create your value right now</response>
         [HttpPost]
         public ActionResult<string> Post([FromBody] ExampleViewModel model)
         {
