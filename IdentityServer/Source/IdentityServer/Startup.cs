@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using IdentityServer4;
+using IdentityServer.Models;
+using Microsoft.AspNetCore.Identity;
+using IdentityServer.Contexts;
 
 namespace IdentityServer
 {
@@ -28,6 +31,13 @@ namespace IdentityServer
         {
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
+            services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
             services.Configure<IISOptions>(options =>
             {
                 options.AutomaticAuthentication = false;
@@ -43,7 +53,8 @@ namespace IdentityServer
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
             })
-                .AddTestUsers(TestUsers.Users)
+                .AddAspNetIdentity<ApplicationUser>()
+                //.AddTestUsers(TestUsers.Users)
                 // this adds the config data from DB (clients, resources, CORS)
                 .AddConfigurationStore(options =>
                 {

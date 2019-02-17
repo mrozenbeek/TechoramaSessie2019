@@ -1,8 +1,11 @@
+// Download & install -> https://sqlitebrowser.org/dl/
+
 // Powershell (run as administrator):
+// Install Identityserver4 templates
 
 dotnet new -i identityserver4.templates
 
-// dotnet templates are being installed
+// Create new project => IdentityServer4EntityFramework
 
 dotnet new is4ef --output C:\Git\ronaldvanmeer@gmail.com\TechoramaSessie\TechoramaSessie2019\IdentityServer\Source\IdentityServer\
 
@@ -10,3 +13,38 @@ dotnet new is4ef --output C:\Git\ronaldvanmeer@gmail.com\TechoramaSessie\Techora
 
 // Open project in Visual Studio
 // Edit appsettings.json to meet requirements -=> connection string
+
+// Run SEED
+// set location of powershell to the root folder of identityserver4
+
+dotnet run /seed
+
+// Startup IdentityServer4 debugging
+vs -> build & run
+
+// Jeej Works => set debug to IIS with in project properties
+
+// Validate if url is "Http://localhost/identityServer"
+
+// Jeej works =-> now lets add Asp Net Identity
+
+// 1) Create ApplicationUser Class extending Identity User
+// 2) Create ApplicationDbContext implementing ApplicationUser for db
+// 3) Register context for dependancy injection
+// 4) Add user migration
+//    a: 
+			dotnet ef migrations add Users -c ApplicationDbContext -o Migrations/Users
+//    b:
+			dotnet ef database update -c ApplicationDbContext
+
+
+// Add nuget package: IdentityServer4.AspNetIdentity
+// Setup AspNet identity in services
+
+// Modify Program to run separate user seed
+// Add SeedUser class => containing AspNet Identity Representation of an identityuser
+// Run seed
+dotnet run /user
+
+// Done => Run
+// Lets build MVC Client & API

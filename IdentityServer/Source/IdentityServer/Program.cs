@@ -11,6 +11,8 @@ using Serilog.Events;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
+using IdentityServer.Models;
 
 namespace IdentityServer
 {
@@ -21,9 +23,16 @@ namespace IdentityServer
             Console.Title = "IdentityServer4.EntityFramework";
 
             var seed = args.Contains("/seed");
+            var user = args.Contains("/user");
+
             if (seed)
             {
                 args = args.Except(new[] { "/seed" }).ToArray();
+            }
+            if(user)
+            {
+                
+                args = args.Except(new[] { "/user" }).ToArray();
             }
 
             var host = CreateWebHostBuilder(args).Build();
@@ -34,6 +43,15 @@ namespace IdentityServer
                 var connectionString = config.GetConnectionString("DefaultConnection");
                 SeedData.EnsureSeedData(connectionString);
                 return;
+            }
+
+            if(user)
+            {
+                Console.WriteLine("running user seed");
+                
+                SeedUser.EnsureSeedData(host.Services);
+                return;
+
             }
 
             host.Run();

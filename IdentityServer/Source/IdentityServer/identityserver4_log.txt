@@ -1,0 +1,83 @@
+2019-02-13 20:02:50.341 +01:00 [INF] Using the default authentication scheme idsrv for IdentityServer
+2019-02-13 20:02:50.385 +01:00 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2019-02-13 20:02:50.386 +01:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2019-02-13 20:02:50.386 +01:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2019-02-13 20:02:50.386 +01:00 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2019-02-13 20:02:50.386 +01:00 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2019-02-13 20:02:50.966 +01:00 [DBG] Starting grant removal
+2019-02-13 20:02:51.449 +01:00 [DBG] Login Url: /Account/Login
+2019-02-13 20:02:51.454 +01:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-13 20:02:51.454 +01:00 [DBG] Logout Url: /Account/Logout
+2019-02-13 20:02:51.455 +01:00 [DBG] ConsentUrl Url: /consent
+2019-02-13 20:02:51.455 +01:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-13 20:02:51.455 +01:00 [DBG] Error Url: /home/error
+2019-02-13 20:02:51.455 +01:00 [DBG] Error Id Parameter: errorId
+2019-02-13 20:03:16.205 +01:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-02-13 20:03:16.212 +01:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-02-13 20:03:16.213 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-02-13 20:03:16.218 +01:00 [DBG] Start discovery request
+2019-02-13 20:03:17.921 +01:00 [DBG] Found ["openid","profile","api1"] as all scopes in database
+2019-02-13 20:03:20.431 +01:00 [INF] AuthenticationScheme: idsrv was challenged.
+2019-02-13 20:04:02.099 +01:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-13 20:04:02.288 +01:00 [INF] {"Username":"bob","Provider":null,"ProviderUserId":null,"SubjectId":"88421113","DisplayName":"bob","Endpoint":"UI","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLKHSND0GFCN:00000006","TimeStamp":"2019-02-13T19:04:02.0000000Z","ProcessId":8944,"LocalIpAddress":"127.0.0.1:41109","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-02-13 20:04:02.313 +01:00 [DBG] Augmenting SignInContext
+2019-02-13 20:04:02.317 +01:00 [DBG] Adding idp claim with value: local
+2019-02-13 20:04:02.318 +01:00 [DBG] Adding amr claim with value: pwd
+2019-02-13 20:04:02.334 +01:00 [INF] AuthenticationScheme: idsrv signed in.
+2019-02-13 20:04:02.506 +01:00 [DBG] 0 persisted grants found for 88421113
+2019-02-13 20:04:15.889 +01:00 [DBG] CORS request made for path: /Account/Logout from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-13 20:04:15.966 +01:00 [INF] AuthenticationScheme: idsrv signed out.
+2019-02-13 20:04:15.968 +01:00 [INF] {"SubjectId":"88421113","DisplayName":"bob","Category":"Authentication","Name":"User Logout Success","EventType":"Success","Id":1002,"Message":null,"ActivityId":"0HLKHSND0GFCP:0000000B","TimeStamp":"2019-02-13T19:04:15.0000000Z","ProcessId":8944,"LocalIpAddress":"127.0.0.1:41109","RemoteIpAddress":"::1","$type":"UserLogoutSuccessEvent"}
+2019-02-13 20:04:25.831 +01:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-02-13 20:04:25.869 +01:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"818727","DisplayName":"alice","Endpoint":"UI","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLKHSND0GFCP:0000000D","TimeStamp":"2019-02-13T19:04:25.0000000Z","ProcessId":8944,"LocalIpAddress":"127.0.0.1:41109","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-02-13 20:04:25.870 +01:00 [DBG] Augmenting SignInContext
+2019-02-13 20:04:25.870 +01:00 [DBG] Adding idp claim with value: local
+2019-02-13 20:04:25.870 +01:00 [DBG] Adding amr claim with value: pwd
+2019-02-13 20:04:25.871 +01:00 [INF] AuthenticationScheme: idsrv signed in.
+2019-02-13 20:04:30.449 +01:00 [DBG] 0 persisted grants found for 818727
+2019-02-13 20:30:41.578 +01:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-13 20:30:41.626 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-13 20:30:41.627 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-13 20:30:41.627 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-13 20:30:41.627 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-13 20:30:41.627 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-13 20:30:41.979 +01:00 [DBG] Starting grant removal
+2019-02-13 20:30:42.333 +01:00 [DBG] Login Url: /Account/Login
+2019-02-13 20:30:42.336 +01:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-13 20:30:42.336 +01:00 [DBG] Logout Url: /Account/Logout
+2019-02-13 20:30:42.336 +01:00 [DBG] ConsentUrl Url: /consent
+2019-02-13 20:30:42.337 +01:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-13 20:30:42.337 +01:00 [DBG] Error Url: /home/error
+2019-02-13 20:30:42.337 +01:00 [DBG] Error Id Parameter: errorId
+2019-02-13 20:30:46.720 +01:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2019-02-17 20:35:13.518 +01:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-17 20:35:13.558 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-17 20:35:13.559 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-17 20:35:13.559 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-17 20:35:13.559 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-17 20:35:13.559 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-17 20:35:13.788 +01:00 [DBG] Starting grant removal
+2019-02-17 20:35:14.040 +01:00 [DBG] Login Url: /Account/Login
+2019-02-17 20:35:14.043 +01:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-17 20:35:14.043 +01:00 [DBG] Logout Url: /Account/Logout
+2019-02-17 20:35:14.043 +01:00 [DBG] ConsentUrl Url: /consent
+2019-02-17 20:35:14.043 +01:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-17 20:35:14.043 +01:00 [DBG] Error Url: /home/error
+2019-02-17 20:35:14.043 +01:00 [DBG] Error Id Parameter: errorId
+2019-02-17 20:39:06.612 +01:00 [WRN] User ae8e3d75-6906-4d20-8fbc-ecb3b20468c6 password validation failed: PasswordTooShort;PasswordRequiresNonAlphanumeric;PasswordRequiresDigit.
+2019-02-17 20:53:28.833 +01:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-17 20:53:28.900 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-17 20:53:28.901 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-17 20:53:28.901 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-17 20:53:28.902 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-17 20:53:28.902 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-17 20:53:29.252 +01:00 [DBG] Starting grant removal
+2019-02-17 20:53:29.766 +01:00 [DBG] Login Url: /Account/Login
+2019-02-17 20:53:29.773 +01:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-17 20:53:29.773 +01:00 [DBG] Logout Url: /Account/Logout
+2019-02-17 20:53:29.773 +01:00 [DBG] ConsentUrl Url: /consent
+2019-02-17 20:53:29.773 +01:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-17 20:53:29.773 +01:00 [DBG] Error Url: /home/error
+2019-02-17 20:53:29.773 +01:00 [DBG] Error Id Parameter: errorId
+2019-02-17 21:05:47.705 +01:00 [DBG] Stopping grant removal
+2019-02-17 21:05:47.860 +01:00 [DBG] TaskCanceledException. Exiting.

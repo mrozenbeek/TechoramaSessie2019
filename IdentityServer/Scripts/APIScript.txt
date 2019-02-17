@@ -1,0 +1,8 @@
+// API 
+//NuGet install IdentityServer4.AccessTokenValidation
+
+//Configure Authentication to use the identity server
+
+// Set debug to user IIS 
+
+// Set Authorize on the controllers which need authorization
