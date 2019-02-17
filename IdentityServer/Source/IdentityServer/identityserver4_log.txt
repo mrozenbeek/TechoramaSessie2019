@@ -65,3 +65,19 @@
 2019-02-17 20:35:14.043 +01:00 [DBG] Error Url: /home/error
 2019-02-17 20:35:14.043 +01:00 [DBG] Error Id Parameter: errorId
 2019-02-17 20:39:06.612 +01:00 [WRN] User ae8e3d75-6906-4d20-8fbc-ecb3b20468c6 password validation failed: PasswordTooShort;PasswordRequiresNonAlphanumeric;PasswordRequiresDigit.
+2019-02-17 20:53:28.833 +01:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-02-17 20:53:28.900 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-02-17 20:53:28.901 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-02-17 20:53:28.901 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-02-17 20:53:28.902 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-02-17 20:53:28.902 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-02-17 20:53:29.252 +01:00 [DBG] Starting grant removal
+2019-02-17 20:53:29.766 +01:00 [DBG] Login Url: /Account/Login
+2019-02-17 20:53:29.773 +01:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-02-17 20:53:29.773 +01:00 [DBG] Logout Url: /Account/Logout
+2019-02-17 20:53:29.773 +01:00 [DBG] ConsentUrl Url: /consent
+2019-02-17 20:53:29.773 +01:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-02-17 20:53:29.773 +01:00 [DBG] Error Url: /home/error
+2019-02-17 20:53:29.773 +01:00 [DBG] Error Id Parameter: errorId
+2019-02-17 21:05:47.705 +01:00 [DBG] Stopping grant removal
+2019-02-17 21:05:47.860 +01:00 [DBG] TaskCanceledException. Exiting.

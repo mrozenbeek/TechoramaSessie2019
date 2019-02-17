@@ -22,6 +22,10 @@ dotnet run /seed
 // Startup IdentityServer4 debugging
 vs -> build & run
 
+// Jeej Works => set debug to IIS with in project properties
+
+// Validate if url is "Http://localhost/identityServer"
+
 // Jeej works =-> now lets add Asp Net Identity
 
 // 1) Create ApplicationUser Class extending Identity User
