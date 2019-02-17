@@ -41,3 +41,6 @@ vs -> build & run
 // Add SeedUser class => containing AspNet Identity Representation of an identityuser
 // Run seed
 dotnet run /user
+
+// Done => Run
+// Lets build MVC Client & API
