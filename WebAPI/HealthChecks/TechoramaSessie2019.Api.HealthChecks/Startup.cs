@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace TechoramaSessie2019.Api.HealthChecks
 {
@@ -30,10 +34,14 @@ namespace TechoramaSessie2019.Api.HealthChecks
                 .AddNewtonsoftJson();
 
             services.AddHealthChecks()
-            .AddCheck("Super healthy", () =>
-                HealthCheckResult.Healthy("Example is OK!"), tags: new[] { "example" }) 
-            .AddCheck("Not so healthy", () =>
-                HealthCheckResult.Unhealthy("Example is OK!"), tags: new[] { "example" });
+            .AddCheck("Example working", () =>
+                HealthCheckResult.Healthy("Example is OK!"), tags: new[] { "Healthy" }) 
+
+            .AddCheck("Not working with Unhealthy", () =>
+                HealthCheckResult.Unhealthy("It iz not working......"), tags: new[] { "Unhealthy" })
+
+                .AddCheck("Not working with healthy", () =>
+                HealthCheckResult.Healthy("It iz not working......"), tags: new[] { "Unhealthy" });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +57,19 @@ namespace TechoramaSessie2019.Api.HealthChecks
                 app.UseHsts();
             }
 
-            app.UseHealthChecks("/health");
+            app.UseHealthChecks("/healthy", new HealthCheckOptions()
+            {
+                // Filter out the 'Bar' health check. Only Foo and Baz execute.
+                Predicate = (check) => check.Tags.Contains("Healthy"),
+                ResponseWriter = WriteResponse
+            });
+
+            app.UseHealthChecks("/Unhealthy", new HealthCheckOptions()
+            {
+                // Filter out the 'Bar' health check. Only Foo and Baz execute.
+                Predicate = (check) => check.Tags.Contains("Unhealthy"),
+                ResponseWriter = WriteResponse
+            });
             app.UseHttpsRedirection();
 
             app.UseRouting(routes =>
@@ -58,6 +78,23 @@ namespace TechoramaSessie2019.Api.HealthChecks
             });
 
             app.UseAuthorization();
+        }
+
+        private static Task WriteResponse(HttpContext httpContext,
+    HealthReport result)
+        {
+            httpContext.Response.ContentType = "application/json";
+           
+            var json = new JObject(
+                new JProperty("status", result.Status.ToString()),
+                new JProperty("results", new JObject(result.Entries.Select(pair =>
+                    new JProperty(pair.Key, new JObject(
+                        new JProperty("status", pair.Value.Status.ToString()),
+                        new JProperty("description", pair.Value.Description),
+                        new JProperty("data", new JObject(pair.Value.Data.Select(
+                            p => new JProperty(p.Key, p.Value))))))))));
+            return httpContext.Response.WriteAsync(
+                json.ToString(Formatting.Indented));
         }
     }
 }
