@@ -37,9 +37,9 @@ namespace TechoramaSessie2019.Api.HealthChecks.Advanced
 
             //Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore
             services.AddHealthChecks()
-                .AddDbContextCheck<ExampleDbContext>()
+                .AddDbContextCheck<ExampleDbContext>( tags: new string[] {"db"})
                 .AddCheck("Example working", () =>
-               HealthCheckResult.Healthy("Example is OK!"));
+               HealthCheckResult.Healthy("Example is OK!"), tags: new string[] { "notsodb" });
 
             services.AddDbContext<ExampleDbContext>(options =>
             {
@@ -63,7 +63,8 @@ namespace TechoramaSessie2019.Api.HealthChecks.Advanced
 
             app.UseHealthChecks("/healthy", new HealthCheckOptions()
             {
-                ResponseWriter = WriteResponse
+                ResponseWriter = WriteResponse,
+                //Predicate = EL=> EL.Tags.Contains("|db")
             });
             app.Map("/createdatabase", b => b.Run(async (context) =>
             {
