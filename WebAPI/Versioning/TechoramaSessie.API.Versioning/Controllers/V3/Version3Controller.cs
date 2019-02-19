@@ -9,7 +9,6 @@ namespace TechoramaSessie.API.Versioning.Controllers.V1
 {
     [ApiVersion("3.0")]
     //[Route("api/{v:apiVersion}/values")]
-    [ApiController]
     public class Version3Controller : BaseController
     {
         // GET api/values
