@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Client.ClaimActions;
+using Client.Constants;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
@@ -56,10 +57,10 @@ namespace Client
            {
                options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 
-               options.Authority = "http://localhost:3254/";
+               options.Authority = ClientConstants.AuthorityUrl;
                options.RequireHttpsMetadata = false;
-               options.ClientId = "mvc";
-               options.ClientSecret = "49C1A7E1-0C79-4A89-A3D6-A37998FB86B0";
+               options.ClientId = ClientConstants.ClientId;
+               options.ClientSecret = ClientConstants.ClientSecret;
                options.ClaimActions.Add(new RoleClaimAction());
                options.ResponseType = "code id_token";
                options.GetClaimsFromUserInfoEndpoint = true;

@@ -6,3 +6,6 @@
 // Set debug to user IIS 
 
 // Set Authorize on the controllers which need authorization
+
+// Create new IdentityController
+// Returns userclaims
