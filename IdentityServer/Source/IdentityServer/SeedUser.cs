@@ -57,7 +57,12 @@ namespace IdentityServer
             }
             else
             {
-                Console.WriteLine("Admin Already exists");
+                var user = await userManager.FindByNameAsync("Admin");
+                user.UserName = "Administrator";
+                await userManager.UpdateAsync(user);
+                await userManager.ChangePasswordAsync(user, "Admin1!", "Administrator1!");
+
+                Console.WriteLine("Admin updated to administrator");
             }
         }
     }

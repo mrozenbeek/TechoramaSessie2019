@@ -1,0 +1,10 @@
+// Create new MVC site according To template
+// No Authentication
+
+// Add RoleClaimAction class
+// This class will convert role tokens to identity claims and add it to the identity
+
+// Alter StartUp.cs
+// Connect with Identity Server
+
+// Controller Update -=> Authorize so un authenticated users gets redirected to Identityserver login page.

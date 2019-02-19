@@ -46,5 +46,7 @@ vs -> build & run
 // Run seed
 dotnet run /user
 
+// Update TestUserStore to UserManager<ApplicationUser> -> Application Wide -> fix code errors
+
 // Done => Run
 // Lets build MVC Client & API
