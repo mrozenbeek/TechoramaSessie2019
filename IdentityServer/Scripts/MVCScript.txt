@@ -8,3 +8,15 @@
 // Connect with Identity Server
 
 // Controller Update -=> Authorize so un authenticated users gets redirected to Identityserver login page.
+
+// !! TIP  --   //IdentityModelEventSource.ShowPII = true;   -> if you get vague errors about PII hidden
+
+
+// Next step Token validation between Client and API
+// Install IdentityModel  version 3.10.1
+// Create httpclient to get API values
+
+// Test 
+
+
+// Et voila

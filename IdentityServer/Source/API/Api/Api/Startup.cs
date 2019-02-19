@@ -35,7 +35,7 @@ namespace Api
 
                     options.Authority = "http://localhost/IdentityServer";
                     options.RequireHttpsMetadata = false;
-                    options.ApiName = "TestApi";
+                    options.ApiName = "api1";
                 });
 
         }
