@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TechoramaSessie.API.Core;
 
 namespace TechoramaSessie2091.WebApi.Documentationi.Controllers
 {
     [ApiExplorerSettings(GroupName ="v1")]
     [ApiVersion("1.0")]
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ValuesController : ControllerBase
+    public class ValuesController : BaseController
     {
         // GET api/values
         [HttpGet]

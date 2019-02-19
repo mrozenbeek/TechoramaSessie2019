@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using TechoramaSessie.API.Core;
 
 namespace TechoramaSessie.API.Versioning.Conventions.Controllers.V1
 {
-    [Route("api/values")]
-    [ApiController]
-    public class Version3Controller : ControllerBase
+
+    public class Version3Controller : BaseController
     {
         // GET api/values
         [HttpGet]

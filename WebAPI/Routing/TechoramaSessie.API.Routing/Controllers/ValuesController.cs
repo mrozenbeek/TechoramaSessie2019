@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TechoramaSessie.API.Core;
 using TechoramaSessie.API.Routing.Models;
 
 namespace TechoramaSessie.API.Routing.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ValuesController : ControllerBase
+    public class ValuesController : BaseController
     {
         private static IList<string> _data = new List<string>() {
              "value1", "value2"

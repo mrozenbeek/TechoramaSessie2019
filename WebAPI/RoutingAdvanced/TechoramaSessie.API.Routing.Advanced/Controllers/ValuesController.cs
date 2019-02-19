@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using TechoramaSessie.API.Core;
 using TechoramaSessie.API.Routing.Advanced.Models;
 
 namespace TechoramaSessie.API.Routing.Advanced.Controllers
 {
-    [Route("api/[controller]")]
     //[Route("api/values")]
     [Route("api/AdvancedRouting")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ValuesController : BaseController
     {
         private static IList<string> _data = new List<string>() {
              "value1", "value2"

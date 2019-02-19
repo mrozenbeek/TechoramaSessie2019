@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TechoramaSessie.API.Core;
 
 namespace TechoramaSessie.API.Versioning.Controllers.V1
 {
     [ApiVersion("1.0", Deprecated = true)]
     //[Route("api/{v:apiVersion}/values")]
-    [Route("api/values")]
-    [ApiController]
-    public class Version1Controller : ControllerBase
+    public class Version1Controller : BaseController
     {
         // GET api/values
         [HttpGet]

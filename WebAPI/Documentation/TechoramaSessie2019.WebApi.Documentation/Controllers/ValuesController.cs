@@ -4,15 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TechoramaSessie.API.Core;
 using TechoramaSessie2019.WebApi.Documentation.Models;
 
 namespace TechoramaSessie2019.WebApi.Documentation.Controllers
 {
-    [Route("api/[controller]")]
-    //[Route("api/values")]
     //[Route("api/AdvancedRouting")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ValuesController : BaseController
     {
         private static IList<string> _data = new List<string>() {
              "value1", "value2"

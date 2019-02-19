@@ -8,4 +8,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0-preview-19075-0444" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\TechoramaSessie.API.Core\TechoramaSessie.API.Core.csproj" />
+  </ItemGroup>
+
 </Project>
